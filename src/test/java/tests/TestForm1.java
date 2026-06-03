@@ -16,6 +16,7 @@ public class TestForm1 extends TestBase {
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption("June");
         $(".react-datepicker__year-select").selectOption("2000");
+        //$(".react-datepicker__day-003").click;
         $$(".react-datepicker__day:not(.react-datepicker__day--outside-month)")
                 .findBy(text("3"))
                 .click();
