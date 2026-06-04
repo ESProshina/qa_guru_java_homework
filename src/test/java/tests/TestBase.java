@@ -1,17 +1,20 @@
 package tests;import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;import static com.codeborne.selenide.Selenide.closeWebDriver;
-import static com.codeborne.selenide.Selenide.sleep;public class TestBase {    @BeforeAll
-static void beforeAll() {
+import static com.codeborne.selenide.Selenide.sleep;
+public class TestBase {
+
+    @BeforeAll
+    static void beforeAll() {
     Configuration.browserSize = "1920x1080";
     Configuration.browser = "chrome";
     Configuration.baseUrl = "https://demoqa.com";
-    Configuration.timeout = 10000; // default 4000
-    Configuration.holdBrowserOpen = false; // браузер закрывается после тестов
-}    @AfterEach
-void afterEach() {
-    // Задержка 3 секунды перед закрытием браузера
-    sleep(10000); // 3000 миллисекунд = 3 секунды
+    Configuration.timeout = 10000;
+    Configuration.holdBrowserOpen = false;
+  }
+    @AfterEach
+    void afterEach() {
+    sleep(10000);
     closeWebDriver();
-}
+ }
 }
