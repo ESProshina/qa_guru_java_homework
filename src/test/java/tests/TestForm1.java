@@ -2,10 +2,11 @@ package tests;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
-import java.time.Duration;
+//import java.net.URL;
+//import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
+//import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 public class TestForm1 extends TestBase {
@@ -28,7 +29,7 @@ public class TestForm1 extends TestBase {
         $("#subjectsInput").setValue("English").pressEnter();
         $("#hobbiesWrapper").find(byText("Music")).click();
         //$(byId("uploadPicture")).uploadFromClasspath("screentest.png");
-        $("#uploadPicture").sendKeys(new File("src/test/picture/screentest.png").getAbsolutePath());
+        $("#uploadPicture").sendKeys(new File("src/test/resources/testbest.png").getAbsolutePath());
         $("#currentAddress").setValue("Test Address 123");
         $("#state").click();
         $(byText("NCR")).click();
