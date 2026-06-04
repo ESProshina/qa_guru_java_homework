@@ -1,6 +1,5 @@
 package tests;
 import org.junit.jupiter.api.Test;
-import java.io.File;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
