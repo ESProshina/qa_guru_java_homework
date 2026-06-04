@@ -22,7 +22,8 @@ public class TestStudentRegistrationForm extends TestBase {
                 .click();
         $("#subjectsInput").setValue("English").pressEnter();
         $("#hobbiesWrapper").find(byText("Music")).click();
-        $("#uploadPicture").sendKeys(new File("src/test/resources/testbest.png").getAbsolutePath());
+        //$("#uploadPicture").sendKeys(new File("src/test/resources/testbest.png").getAbsolutePath());
+        $("#uploadPicture").uploadFromClasspath("testbest.png");
         $("#currentAddress").setValue("Test Address 123");
         $("#state").click();
         $(byText("NCR")).click();
@@ -43,6 +44,7 @@ public class TestStudentRegistrationForm extends TestBase {
         $("#userNumber").setValue("9876543210");
         $("#submit").click();
     }
+
     @Test
     void negativeTestWhenFirstNameIsEmpty() {
         open("/automation-practice-form");
