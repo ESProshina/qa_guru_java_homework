@@ -11,7 +11,7 @@ static void beforeAll() {
 }    @AfterEach
 void afterEach() {
     // Задержка 3 секунды перед закрытием браузера
-    sleep(30000); // 3000 миллисекунд = 3 секунды
+    sleep(10000); // 3000 миллисекунд = 3 секунды
     closeWebDriver();
 }
 }
