@@ -1,7 +1,9 @@
 package tests;import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Test;import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;public class TestStudentRegistrationForm extends TestBase {    private final String firstName = "Elena";
+import static com.codeborne.selenide.Selenide.*;
+public class TestStudentRegistrationForm extends TestBase {
+    private final String firstName = "Elena";
     private final String lastName = "Black";
     private final String email = "elena@black.com";
     private final String gender = "Female";
@@ -48,8 +50,8 @@ import static com.codeborne.selenide.Selenide.*;public class TestStudentRegistra
                 text("Hobbies"), text(hobby),
                 text("Picture"), text("testbest.png"),
                 text("Address"), text(address),
-                text("State and City"), text(state + " " + city)
-        );        $("#closeLargeModal").click();
+                text("State and City"), text(state + " " + city));
+        $("#closeLargeModal").click();
     }
     @Test
     void successfulMandatoryFieldsTest() {
@@ -65,8 +67,8 @@ import static com.codeborne.selenide.Selenide.*;public class TestStudentRegistra
                 text("Student Name"), text(firstName + " " + lastName),
                 text("Student Email"), text(email),
                 text("Gender"), text(gender),
-                text("Mobile"), text(mobileNumber)
-        );        $("#closeLargeModal").click();
+                text("Mobile"), text(mobileNumber));
+        $("#closeLargeModal").click();
     }
     @Test
     void negativeTestWhenFirstNameIsEmpty() {
@@ -108,7 +110,6 @@ import static com.codeborne.selenide.Selenide.*;public class TestStudentRegistra
         $("#submit").scrollTo();
         $("#submit").click();
         $(".modal-title").shouldNotBe(visible);
-        // Проверка валидации поля Mobile
         SelenideElement mobileField = $("#userNumber");
         mobileField.shouldHave(attribute("required"));
         boolean isValid = executeJavaScript("return arguments[0].checkValidity();", mobileField);
