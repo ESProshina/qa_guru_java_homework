@@ -1,5 +1,7 @@
-package tests;import com.codeborne.selenide.SelenideElement;
-import org.junit.jupiter.api.Test;import static com.codeborne.selenide.Condition.*;
+package tests;
+import com.codeborne.selenide.SelenideElement;
+import org.junit.jupiter.api.Test;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 public class TestStudentRegistrationForm extends TestBase {
@@ -23,7 +25,7 @@ public class TestStudentRegistrationForm extends TestBase {
         $("#lastName").setValue(lastName);
         $("#userEmail").setValue(email);
         $("#genterWrapper").find(byText(gender)).click();
-        $("#userNumber").setValue(mobileNumber);        // Выбор даты
+        $("#userNumber").setValue(mobileNumber);
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption(month);
         $(".react-datepicker__year-select").selectOption(year);
@@ -40,17 +42,26 @@ public class TestStudentRegistrationForm extends TestBase {
         $("#city").parent().find(byText(city)).click();
         $("#submit").click();
         $(".modal-title").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").shouldHave(
-                text("Student Name"), text(firstName + " " + lastName),
-                text("Student Email"), text(email),
-                text("Gender"), text(gender),
-                text("Mobile"), text(mobileNumber),
-                text("Date of Birth"), text(day + " " + month + "," + year),
-                text("Subjects"), text(subject),
-                text("Hobbies"), text(hobby),
-                text("Picture"), text("testbest.png"),
-                text("Address"), text(address),
-                text("State and City"), text(state + " " + city));
+        $(".table-responsive").shouldHave(text("Student Name"));
+        $(".table-responsive").shouldHave(text(firstName + " " + lastName));
+        $(".table-responsive").shouldHave(text("Student Email"));
+        $(".table-responsive").shouldHave(text(email));
+        $(".table-responsive").shouldHave(text("Gender"));
+        $(".table-responsive").shouldHave(text(gender));
+        $(".table-responsive").shouldHave(text("Mobile"));
+        $(".table-responsive").shouldHave(text(mobileNumber));
+        $(".table-responsive").shouldHave(text("Date of Birth"));
+        $(".table-responsive").shouldHave(text(day + " " + month + "," + year));
+        $(".table-responsive").shouldHave(text("Subjects"));
+        $(".table-responsive").shouldHave(text(subject));
+        $(".table-responsive").shouldHave(text("Hobbies"));
+        $(".table-responsive").shouldHave(text(hobby));
+        $(".table-responsive").shouldHave(text("Picture"));
+        $(".table-responsive").shouldHave(text("testbest.png"));
+        $(".table-responsive").shouldHave(text("Address"));
+        $(".table-responsive").shouldHave(text(address));
+        $(".table-responsive").shouldHave(text("State and City"));
+        $(".table-responsive").shouldHave(text(state + " " + city));
         $("#closeLargeModal").click();
     }
     @Test
@@ -63,11 +74,14 @@ public class TestStudentRegistrationForm extends TestBase {
         $("#userNumber").setValue(mobileNumber);
         $("#submit").click();
         $(".modal-title").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").shouldHave(
-                text("Student Name"), text(firstName + " " + lastName),
-                text("Student Email"), text(email),
-                text("Gender"), text(gender),
-                text("Mobile"), text(mobileNumber));
+        $(".table-responsive").shouldHave(text("Student Name"));
+        $(".table-responsive").shouldHave(text(firstName + " " + lastName));
+        $(".table-responsive").shouldHave(text("Student Email"));
+        $(".table-responsive").shouldHave(text(email));
+        $(".table-responsive").shouldHave(text("Gender"));
+        $(".table-responsive").shouldHave(text(gender));
+        $(".table-responsive").shouldHave(text("Mobile"));
+        $(".table-responsive").shouldHave(text(mobileNumber));
         $("#closeLargeModal").click();
     }
     @Test
@@ -125,13 +139,11 @@ public class TestStudentRegistrationForm extends TestBase {
         $("#submit").scrollTo();
         $("#submit").click();
         $(".modal-title").shouldNotBe(visible);
-        SelenideElement maleRadio = $("#gender-radio-1");
-        SelenideElement femaleRadio = $("#gender-radio-2");
-        SelenideElement otherRadio = $("#gender-radio-3");
-        maleRadio.shouldNotBe(checked);
-        femaleRadio.shouldNotBe(checked);
-        otherRadio.shouldNotBe(checked);
+        $("#gender-radio-1").shouldNotBe(checked);
+        $("#gender-radio-2").shouldNotBe(checked);
+        $("#gender-radio-3").shouldNotBe(checked);
         boolean isFormValid = executeJavaScript("return document.querySelector('form').checkValidity();");
         assert !isFormValid : "Form should be invalid when gender not selected";
     }
 }
+
