@@ -8,7 +8,7 @@ repositories {
 }
 dependencies {
     // Selenide
-    testImplementation 'com.codeborne:selenide:7.0.4'
+    testImplementation 'com.codeborne:selenide:7.16.2'
     // JUnit 5 (JUnit Platform)
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
